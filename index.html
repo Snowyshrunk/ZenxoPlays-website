@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff9fe" />
+  <title>ZenxoPlays ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    :root {
+      --pink: #f3a4df;
+      --pink-dark: #b95a9c;
+      --ink: #5c4b59;
+      --line: #f7c9ed;
+      --paper: #fffdfd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #fff 0%, #fff8fd 100%);
+      color: var(--ink);
+      font-family: Nunito, sans-serif;
+    }
+
+    /* Falling petals */
+    .petals {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .petal {
+      position: absolute;
+      top: -30px;
+      color: #f7b7e6;
+      opacity: 0.45;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate(90px, 110vh) rotate(360deg);
+      }
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      padding: 38px 0 8px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--pink);
+      font: 700 clamp(4.3rem, 12vw, 8rem) / 0.9 Caveat, cursive;
+      text-shadow: 2px 4px 0 #ffe6f7;
+    }
+
+    /* Main content */
+    section {
+      padding: 34px 0 48px;
+    }
+
+    h2 {
+      margin: 0 0 28px;
+      color: var(--pink);
+      font: 600 clamp(3.7rem, 9vw, 6rem) / 1 Caveat, cursive;
+      text-align: center;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 1fr;
+      gap: 26px;
+      align-items: center;
+      min-height: 365px;
+    }
+
+    .divider {
+      height: 18px;
+      border-top: 4px solid var(--pink);
+      border-radius: 50%;
+      opacity: 0.7;
+      transform: rotate(1deg);
+    }
+
+    .art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border: 5px solid #fff;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 8px 26px #eab5d54d;
+    }
+
+    .art.square {
+      aspect-ratio: 1;
+    }
+
+    .main-text {
+      display: grid;
+      min-height: 230px;
+      place-items: start;
+      padding: 26px 30px;
+      border: 2px solid #f8d6ee;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #fff 0%, #fffafd 100%);
+      color: #765d70;
+      box-shadow: 0 10px 30px #efbfdc42;
+      text-align: center;
+    }
+
+    .about-copy {
+      width: 100%;
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .about-heading {
+      margin: 0 0 18px;
+      color: var(--pink-dark);
+      font-family: Nunito, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about-copy p {
+      margin: 0 0 14px;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .birthday {
+      display: inline-block;
+      margin: 2px 0 16px;
+      padding: 7px 14px;
+      border: 1px solid #f7d7ec;
+      border-radius: 999px;
+      background: #fff4fb;
+      color: #b95a9c;
+      font-weight: 700;
+    }
+
+    /* Social links */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .link-card {
+      display: flex;
+      min-height: 138px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px 12px;
+      border: 2px solid #ef9bd9;
+      border-radius: 20px;
+      background: #f9c9ed;
+      color: #773b69;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .link-card:hover {
+      border-color: #dc79bd;
+      background: #f3a4df;
+      color: #602451;
+      box-shadow: 0 6px 18px #f1a4d355;
+      transform: translateY(-3px);
+    }
+
+    .link-card i {
+      font-size: 2rem;
+    }
+
+    /* Video */
+    .video-wrap {
+      max-width: 790px;
+      margin: auto;
+      padding: 14px;
+      border: 3px solid var(--line);
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 8px 28px #f4c5e244;
+    }
+
+    .video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      background: #fff8fc;
+      object-fit: contain;
+    }
+
+    /* Footer */
+    footer {
+      padding: 32px;
+      color: #b58da9;
+      text-align: center;
+    }
+
+    /* Responsive layouts */
+    @media (max-width: 950px) {
+      .links {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 750px) {
+      section {
+        padding: 26px 0 35px;
+      }
+
+      .intro {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .main-text {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+
+      .art {
+        max-height: 300px;
+      }
+
+      .links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" aria-hidden="true" id="petals"></div>
+  <main class="site">
+    <header>
+      <h1>ZenxoPlays</h1>
+    </header>
+    <section id="text" aria-label="Main text and pictures">
+      <div class="intro">
+        <img class="art" src="duck-1.jpg" alt="Duck picture">
+        <article class="main-text">
+          <div class="about-copy">
+            <h3 class="about-heading">✦ About Me ✦</h3>
+
+            <p>Hi! I'm Zenxoplays, but you can call me Zen! If you've been around long enough, you might know me as <strong>zen._.xoxox</strong>. I absolutely love ducks, as you can probably tell! 🦆</p>
+
+            <div class="birthday">🎂 Birthday: 22/08/2008</div>
+
+            <p>I'm a streamer and content creator. I may not always be super active, but I try my best to make time whenever I can. I love anime, music, cooking, drawing, and animals.</p>
+
+            <p>I enjoy making people smile, spreading happiness, and giving little gifts whenever I can. I hope my content feels welcoming and gives everyone a good time!</p>
+
+            <p>Thanks for stopping by and getting to know a little about me. I appreciate you being here! 💕</p>
+          </div>
+        </article>
+        <img class="art square" src="duck-2.jpg" alt="Another duck picture">
+      </div>
+    </section>
+    <div class="divider" aria-hidden="true"></div>
+    <section id="links" aria-labelledby="links-heading">
+      <h2 id="links-heading">links ♡</h2>
+
+      <div class="links">
+        <a class="link-card" href="https://discord.gg/7FjEFU5PyJ" target="_blank" rel="noopener noreferrer" aria-label="Discord server">
+          <i class="fa-brands fa-discord" aria-hidden="true"></i>
+          <span>Discord</span>
+        </a>
+
+        <a class="link-card" href="https://www.tiktok.com/@zenxoplays" target="_blank" rel="noopener noreferrer" aria-label="TikTok profile">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          <span>TikTok</span>
+        </a>
+
+        <a class="link-card" href="https://www.youtube.com/@Zenxoplay" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          <span>YouTube</span>
+        </a>
+
+        <a class="link-card" href="https://www.twitch.tv/zenxoplays" target="_blank" rel="noopener noreferrer" aria-label="Twitch channel">
+          <i class="fa-brands fa-twitch" aria-hidden="true"></i>
+          <span>Twitch</span>
+        </a>
+      </div>
+    </section>
+    <div class="divider" aria-hidden="true"></div>
+    <section id="video" aria-label="Video area">
+      <div class="video-wrap">
+        <video class="video" controls autoplay playsinline preload="metadata" aria-label="The Duck Song">
+          <source src="The_Duck_Song.mp4" type="video/mp4">
+          <source src="The_Duck_Song.webm" type="video/webm">
+          Your browser does not support HTML video.
+        </video>
+      </div>
+    </section>
+    <footer>🌸 · Made with ♡ for Zen · 🌸</footer>
+  </main>
+  <script>
+    const petalLayer = document.getElementById('petals');
+    const video = document.querySelector('.video');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (video) {
+      video.play().catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+
+      document.addEventListener('pointerdown', () => {
+        if (video.muted) {
+          video.muted = false;
+        }
+      }, { once: true });
+    }
+
+    if (!prefersReducedMotion) {
+      for (let i = 0; i < 14; i += 1) {
+        const petal = document.createElement('span');
+
+        petal.className = 'petal';
+        petal.textContent = '✿';
+        petal.style.left = `${i * 7.3}%`;
+        petal.style.fontSize = `${10 + (i % 4) * 4}px`;
+        petal.style.animationDuration = `${11 + (i % 6) * 3}s`;
+        petal.style.animationDelay = `${-i * 2.1}s`;
+
+        petalLayer.appendChild(petal);
+      }
+    }
+  </script>
+</body>
+</html>
